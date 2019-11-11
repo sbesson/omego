@@ -60,3 +60,11 @@ script:
 
 after_failure:
     - tail -n 1000 OMERO.server/var/log/Blitz-0.log
+
+deploy:
+  provider: pypi
+  user: $PYPI_USER
+  password: $PYPI_PASSWORD
+  skip_existing: true
+  on:
+    tags: true
